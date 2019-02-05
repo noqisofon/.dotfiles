@@ -53,7 +53,7 @@ is-windows-nt() {
 is-cygwin() {
     os_detect
 
-    if [ "$PLATFORM" = "msys" ]; then
+    if [ "$PLATFORM" = "cygwin" ]; then
         return 0
     else
         return 1
