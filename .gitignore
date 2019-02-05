@@ -1,0 +1,9 @@
+# -*- coding: utf-8; mode: gitignore; -*-
+
+# Directory keep file
+!.gitkeep
+
+# Emacs template files
+*~
+.*~
+\#*#
