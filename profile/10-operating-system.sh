@@ -3,12 +3,16 @@
 # via: https://qiita.com/b4b4r07/items/09815eda8ef72e0b472e
 #
 
-os-type() {
+kernel-type() {
     uname -s | tr '[:upper:]' '[:lower:]'
 }
 
-os-detect() {
-    case "$(os-type)" in
+operationg-system() {
+    uname -o | tr '[:upper:]' '[:lower:]'
+}
+
+ensure-platform() {
+    case "$(kernel-type)" in
          *'linux'*)       PLATFORM='linux'    ;;
         *'darwin'*)       PLATFORM='osx'      ;;
            *'bsd'*)       PLATFORM='bsd'      ;;
@@ -21,7 +25,7 @@ os-detect() {
 }
 
 is-linux() {
-    os_detect
+    ensure-platform
 
     if [ "$PLATFORM" = "linux" ]; then
         return 0
@@ -31,7 +35,7 @@ is-linux() {
 }
 
 is-osx() {
-    os_detect
+    ensure-platform
 
     if [ "$PLATFORM" = "osx" ]; then
         return 0
@@ -41,7 +45,7 @@ is-osx() {
 }
 
 is-windows-nt() {
-    os_detect
+    ensure-platform
 
     if [ "$PLATFORM" = "msys" -o "$PLATFORM" = "cygwin" ]; then
         return 0
@@ -51,7 +55,7 @@ is-windows-nt() {
 }
 
 is-cygwin() {
-    os_detect
+    ensure-platform
 
     if [ "$PLATFORM" = "cygwin" ]; then
         return 0
@@ -61,7 +65,7 @@ is-cygwin() {
 }
 
 is-msys() {
-    os_detect
+    ensure-platform
 
     if [ "$PLATFORM" = "msys" ]; then
         return 0
