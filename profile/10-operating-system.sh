@@ -16,7 +16,7 @@ ensure-platform() {
          *'linux'*)       PLATFORM='linux'    ;;
         *'darwin'*)       PLATFORM='osx'      ;;
            *'bsd'*)       PLATFORM='bsd'      ;;
-         *'mingw'*)       PLATFORM='msys'     ;;
+          *'msys'*)       PLATFORM='msys'     ;;
         *'cygwin'*)       PLATFORM='cygwin'   ;;
                  *)       PLATFORM='unknown'  ;;
     esac
@@ -73,3 +73,18 @@ is-msys() {
         return 1
     fi
 }
+
+
+
+if type cygpath >& /dev/null ; then
+    if [ -n "$LOCALAPPDATA" ]; then
+        export LOCALAPPDATA=`cygpath $LOCALAPPDATA`
+    fi
+    if [ -n "$APPDATA" ]; then
+        export APPDATA=`cygpath $APPDATA`
+    fi
+fi
+
+if is-windows-nt ; then
+    source $HOME/.config/dotfiles/bash/setup/keybase.sh
+fi
