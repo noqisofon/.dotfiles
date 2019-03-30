@@ -13,5 +13,5 @@ pacman-update() {
         mkdir -p $log_dir
     fi
   
-    pacman -Syu --logfile $log_dir/`date -I`.update.log
+    pacman -Syu --noconfirm --logfile $log_dir/`date -I`.update.log
 }
