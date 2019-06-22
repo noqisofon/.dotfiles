@@ -1,7 +1,0 @@
-# -*- mode: yaml; coding: utf-8; -*-
----
-gem: --no-rdoc --no-ri
-install: "--user"
-update: "--user"
-gempath:
-- /home/rihine/.gem/ruby/2.6.0
