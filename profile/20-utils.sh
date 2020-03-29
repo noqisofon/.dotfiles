@@ -4,7 +4,7 @@
 pacman-update() {
     local log_dir=$HOME/var/log/pacman
     if [ type pacman 2> /dev/null ]; then
-        echo 'not found pacman' > 2
+        echo 'not found pacman' 1> &2
 
         return 0
     fi
