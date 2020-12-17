@@ -3,11 +3,14 @@
 # via: https://qiita.com/b4b4r07/items/09815eda8ef72e0b472e
 #
 
+exit_success=0
+exit_failure=1
+
 kernel-type() {
     uname -s | tr '[:upper:]' '[:lower:]'
 }
 
-operationg-system() {
+operating-system() {
     uname -o | tr '[:upper:]' '[:lower:]'
 }
 
@@ -28,9 +31,9 @@ is-linux() {
     ensure-platform
 
     if [ "$PLATFORM" = "linux" ]; then
-        return 0
+        return $exit_success
     else
-        return 1
+        return $exit_failure
     fi
 }
 
@@ -38,19 +41,19 @@ is-osx() {
     ensure-platform
 
     if [ "$PLATFORM" = "osx" ]; then
-        return 0
+        return $exit_success
     else
-        return 1
+        return $exit_failure
     fi
 }
 
 is-windows-nt() {
     ensure-platform
 
-    if [ "$PLATFORM" = "msys" -o "$PLATFORM" = "cygwin" ]; then
-        return 0
+    if [ -n "$OS" -o "$PLATFORM" = "msys" -o "$PLATFORM" = "cygwin" ]; then
+        return $exit_success
     else
-        return 1
+        return $exit_failure
     fi
 }
 
@@ -58,9 +61,9 @@ is-cygwin() {
     ensure-platform
 
     if [ "$PLATFORM" = "cygwin" ]; then
-        return 0
+        return $exit_success
     else
-        return 1
+        return $exit_failure
     fi
 }
 
@@ -68,9 +71,9 @@ is-msys() {
     ensure-platform
 
     if [ "$PLATFORM" = "msys" ]; then
-        return 0
+        return $exit_success
     else
-        return 1
+        return $exit_failure
     fi
 }
 
@@ -88,3 +91,6 @@ fi
 if is-windows-nt ; then
     source $HOME/.config/dotfiles/bash/setup/keybase.sh
 fi
+
+unset exit_success
+unset exit_failure
