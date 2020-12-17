@@ -77,20 +77,5 @@ is-msys() {
     fi
 }
 
-
-
-if type cygpath >& /dev/null ; then
-    if [ -n "$LOCALAPPDATA" ]; then
-        export LOCALAPPDATA=`cygpath $LOCALAPPDATA`
-    fi
-    if [ -n "$APPDATA" ]; then
-        export APPDATA=`cygpath $APPDATA`
-    fi
-fi
-
-if is-windows-nt ; then
-    source $HOME/.config/dotfiles/bash/setup/keybase.sh
-fi
-
 unset exit_success
 unset exit_failure

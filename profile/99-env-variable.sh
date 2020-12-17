@@ -7,10 +7,7 @@ export KCODE=u
 export EDITOR=vim
 export VISUAL=vim
 
-if ! type vim > /dev/null 2>&1; then
-    alias vim=vi
-fi
-
+export HISTFILESIZE=100000
 export LISTMAX=0
 
 export LESS='-R'
@@ -34,7 +31,18 @@ if is-windows-nt; then
     export XDG_CACHE_HOME=$HOME/.cache
 fi
 
-export HISTFILESIZE=100000
+if type cygpath >& /dev/null ; then
+    if [ -n "$LOCALAPPDATA" ]; then
+        export LOCALAPPDATA=`cygpath $LOCALAPPDATA`
+    fi
+    if [ -n "$APPDATA" ]; then
+        export APPDATA=`cygpath $APPDATA`
+    fi
+fi
+
+if is-windows-nt ; then
+    source $HOME/.config/dotfiles/bash/setup/keybase.sh
+fi
 
 if [ -z "$SCOOP" ]; then
     export PATH=$PATH:/opt/bin:/usr/share/perl6/site/bin:$HOME/bin:$HOME/.local/bin:$HOME/.roswell/bin
