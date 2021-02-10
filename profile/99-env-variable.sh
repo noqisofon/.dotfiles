@@ -44,8 +44,25 @@ if is-windows-nt ; then
     source $HOME/.config/dotfiles/bash/setup/keybase.sh
 fi
 
-if [ -z "$SCOOP" ]; then
-    export PATH=$PATH:/opt/bin:/usr/share/perl6/site/bin:$HOME/bin:$HOME/.local/bin:$HOME/.roswell/bin
-else
-    export PATH=$PATH:/opt/bin:/usr/share/perl6/site/bin:$HOME/bin:$HOME/.local/bin:$HOME/.roswell/bin:$SCOOP/shims
+if [ -d /opt/bin ]; then
+    PATH=$PATH:/opt/bin
 fi
+
+if [ -d $HOME/bin ]; then
+    PATH=$PATH:$HOME/bin
+fi
+
+if [ -d $HOME/.local/bin ]; then
+    PATH=$PATH:$HOME/bin
+fi
+
+if [ -d $HOME/.roswell/bin ]; then
+    PATH=$PATH:$HOME/.roswell/bin
+fi
+
+scoop_shims_dir=`cygpath $SCOOP`/shims
+if [ -d "$scoop_shims_dir" ]; then
+    PATH=$PATH:$scoop_shims_dir
+fi
+
+export PATH
