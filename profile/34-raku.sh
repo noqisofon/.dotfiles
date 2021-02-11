@@ -1,5 +1,13 @@
 # -*- coding: utf-8-unix; -*-
 
+RAKUENV_BIN_DIR=$HOME/.rakuenv/bin
+
+if [ -d "RAKUENV_BIN_DIR" ]; then
+    export RAKUENV_BIN_DIR
+
+    PATH=$PATH:$RAKUENV_BIN_DIR
+fi
+
 if is-windows-nt ; then
     WINDOWS_RAKU_BIN_DIR=/c/rakudo/bin
 
