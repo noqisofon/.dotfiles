@@ -1,0 +1,15 @@
+" 縦の長さ(lines)を 24 にします。
+set lines=24
+" 横の長さ(columns)を 80 文字にします。
+set columns=80
+
+" カラースキームを koehler にします。
+colorscheme koehler
+" 背景を黒い感じにします
+set background=dark
+
+" ツールバーを消します。
+set guioptions-=T
+
+" GUI のフォントを HackGen(height: 10)にする 
+set guifont=HackGen:h10
