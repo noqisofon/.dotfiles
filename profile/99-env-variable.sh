@@ -53,7 +53,7 @@ if [ -d $HOME/bin ]; then
 fi
 
 if [ -d $HOME/.local/bin ]; then
-    PATH=$PATH:$HOME/bin
+    PATH=$PATH:$HOME/.local/bin
 fi
 
 if [ -d $HOME/.roswell/bin ]; then
