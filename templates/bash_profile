@@ -1,4 +1,4 @@
-# -*- coding: utf-8-unix; -*-
+# -*- mode: shell-script; coding: utf-8-unix; -*-
 
 for a_file in $HOME/.config/dotfiles/profile/[0-9]*.sh
 do
