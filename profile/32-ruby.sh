@@ -1,6 +1,6 @@
 # -*- coding: utf-8-unix; -*-
 
-if [ "$MSYSTEM" -eq 'MSYS' ]; then
+if [ "$MSYSTEM" = 'MSYS' ]; then
     ruby_version=2.7.0
 else
     ruby_version=3.0.0
