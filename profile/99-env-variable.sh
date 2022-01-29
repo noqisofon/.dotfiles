@@ -62,6 +62,10 @@ if [ -d $HOME/.roswell/bin ]; then
     PATH=$PATH:$HOME/.roswell/bin
 fi
 
+if [ -d $GEM_BIN_DIR ]; then
+    PATH=$PATH:$GEM_BIN_DIR
+fi
+
 scoop_shims_dir=`cygpath $SCOOP`/shims
 if [ -d "$scoop_shims_dir" ]; then
     PATH=$PATH:$scoop_shims_dir
