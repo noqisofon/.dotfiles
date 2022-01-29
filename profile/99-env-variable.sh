@@ -44,6 +44,8 @@ if is-windows-nt ; then
     source $HOME/.config/dotfiles/bash/setup/keybase.sh
 fi
 
+export GHQ_ROOT=$HOME/opt/src
+
 if [ -d /opt/bin ]; then
     PATH=$PATH:/opt/bin
 fi
