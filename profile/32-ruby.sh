@@ -6,7 +6,9 @@ else
     ruby_version=3.0.0
 fi
 
-GEM_BIN_DIR=$HOME/.gem/ruby/${ruby_version}/bin
+export GEM_HOME=$HOME/.gem/ruby/${ruby_version}
+
+GEM_BIN_DIR=$GEM_HOME/bin
 
 if [ -d "$GEM_BIN_DIR" ]; then
     export GEM_BIN_DIR
