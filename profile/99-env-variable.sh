@@ -2,6 +2,8 @@
 
 test -z "$LANG" && export LANG=ja_JP.utf8
 
+export MSYS=winsymlinks
+
 export KCODE=u
 
 export EDITOR=vim
