@@ -70,9 +70,13 @@
 #+end_src
 
 #+begin_src shell-script :tangle ../profile/99-env-variable.sh
-  test -d $quicklist_bin_dir && export PATH=$PATH:$quicklist_bin_dir
+  test -d $quicklisp_bin_dir && export PATH=$PATH:$quicklisp_bin_dir
   test -d $gem_bin_dir       && export PATH=$PATH:$gem_bin_dir
   test -d $scoop_shims_dir   && export PATH=$PATH:$scoop_shims_dir
+#+end_src
+
+#+begin_src shell-script :tangle ../profile/99-env-variable.sh
+  [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source $SDKMAN_DIR/bin/sdkman-init.sh
 #+end_src
 
 #+begin_src shell-script :tangle ../profile/99-env-variable.sh

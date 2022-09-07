@@ -1,0 +1,15 @@
+#+begin_src shell-script :tangle ../profile/33-perl.sh :exports code
+  # -*- coding: utf-8-unix; -*-
+#+end_src
+
+
+#+begin_src shell-script :tangle ../profile/33-perl.sh
+  perl-version() {
+      perl -e 'print $^V'
+  }
+#+end_src
+
+
+#+begin_src shell-script :tangle ../profile/33-perl.sh
+  export PERL5LIB=$HOME/.perl5/lib/5.32
+#+end_src

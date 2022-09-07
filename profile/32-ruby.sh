@@ -1,5 +1,9 @@
 # -*- coding: utf-8-unix; -*-
 
+ruby-version() {
+    ruby -e 'print RUBY_VERSION'
+}
+
 if [ "$MSYSTEM" = 'MSYS' ]; then
     ruby_version=2.7.0
 else
@@ -8,10 +12,6 @@ fi
 
 export GEM_HOME=$HOME/.gem/ruby/${ruby_version}
 
-GEM_BIN_DIR=$GEM_HOME/bin
-
-if [ -d "$GEM_BIN_DIR" ]; then
-    export GEM_BIN_DIR
-fi
+export gem_bin_dir=$GEM_HOME/bin
 
 unset ruby_version

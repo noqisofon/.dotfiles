@@ -10,14 +10,13 @@ pacman-update() {
 
         return $exit_success
     fi
-    
+
     if [ ! -d "$log_dir" ]; then
         mkdir -p $log_dir
     fi
-  
+
     pacman -Syu --noconfirm --logfile $log_dir/`date -I`.update.log
 }
-
 
 unset exit_success
 unset exit_failure

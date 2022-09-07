@@ -1,8 +1,7 @@
-# -*- mode: shell-script; coding: utf-8-unix; -*-
+# -*- coding: utf-8-unix; -*-
 
 when_color=auto
 tab_size=0
-
 
 if ! type vim > /dev/null 2>&1; then
     alias vim=vi
@@ -14,9 +13,7 @@ else
     export LS_OPTIONS="${LS_OPTIONS} -p"
 fi
 
-# alias ls="ls --color=auto"
 alias grep="grep --color=$when_color"
-
 
 unset when_color
 unset tab_size

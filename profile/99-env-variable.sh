@@ -46,9 +46,11 @@ test -d $usr_bin_dir        && export PATH=$PATH:$usr_bin_dir
 test -d $usr_local_bin_dir  && export PATH=$PATH:$usr_local_bin_dir
 test -d $opt_bin_dir        && export PATH=$PATH:$opt_bin_dir
 
-test -d $quicklist_bin_dir && export PATH=$PATH:$quicklist_bin_dir
+test -d $quicklisp_bin_dir && export PATH=$PATH:$quicklisp_bin_dir
 test -d $gem_bin_dir       && export PATH=$PATH:$gem_bin_dir
 test -d $scoop_shims_dir   && export PATH=$PATH:$scoop_shims_dir
+
+[[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source $SDKMAN_DIR/bin/sdkman-init.sh
 
 test -d $home_bin_dir       && export PATH=$PATH:$home_bin_dir
 test -d $home_local_bin_dir && export PATH=$PATH:$home_local_bin_dir
