@@ -12,7 +12,7 @@
 
 #+begin_src shell-script :tangle ../profile/99-env-variable.sh
   if is-windows-nt ; then
-      source ../bash/setup/keybase.sh
+      source $HOME/.config/dotfiles/bash/setup/keybase.sh
   fi
 #+end_src
 

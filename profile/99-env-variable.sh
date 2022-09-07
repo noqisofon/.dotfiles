@@ -3,7 +3,7 @@
 export GHQ_ROOT=$HOME/opt/src
 
 if is-windows-nt ; then
-    source ../bash/setup/keybase.sh
+    source $HOME/.config/dotfiles/bash/setup/keybase.sh
 fi
 
 bin_dir=/bin
