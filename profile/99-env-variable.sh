@@ -1,31 +1,54 @@
 # -*- coding: utf-8-unix; -*-
-if is-windows-nt ; then
-    source $HOME/.config/dotfiles/bash/setup/keybase.sh
-fi
 
 export GHQ_ROOT=$HOME/opt/src
 
-if [ -d /opt/bin ]; then
-    export PATH=$PATH:/opt/bin
+if is-windows-nt ; then
+    source ../bash/setup/keybase.sh
 fi
 
-if [ -d $HOME/bin ]; then
-    export PATH=$PATH:$HOME/bin
-fi
+bin_dir=/bin
+sbin_dir=/sbin
 
-if [ -d $HOME/.local/bin ]; then
-    export PATH=$PATH:$HOME/.local/bin
-fi
+case $MSYSTEM in
+    "MINGW32")
+        usr_bin_dir=/mingw32/bin
+        usr_local_bin_dir=/mingw32/local/bin
+        ;;
+    "MINGW64")
+        usr_bin_dir=/mingw64/bin
+        usr_local_bin_dir=/mingw64/local/bin
+        ;;
+    "UCRT64")
+        usr_bin_dir=/ucrt64/bin
+        usr_local_bin_dir=/ucrt64/local/bin
+        ;;
+    "CLANG32")
+        usr_bin_dir=/clang32/bin
+        usr_local_bin_dir=/clang32/local/bin
+        ;;
+    "CLANG64")
+        usr_bin_dir=/clang64/bin
+        usr_local_bin_dir=/clang64/local/bin
+        ;;
+    *)
+        usr_bin_dir=/usr/bin
+        usr_local_bin_dir=/usr/local/bin
+        ;;
+esac
 
-if [ -d $HOME/.roswell/lisp/quicklisp/bin ]; then
-    export PATH=$PATH:$HOME/.roswell/lisp/quicklisp/bin
-fi
+opt_bin_dir=/opt/bin
+home_bin_dir=$HOME/bin
+home_local_bin_dir=$HOME/.local/bin
 
-if [ -d $GEM_BIN_DIR ]; then
-    export PATH=$PATH:$GEM_BIN_DIR
-fi
+test -d $bin_dir            && export PATH=$bin_dir
+test -d $sbin_dir           && export PATH=$PATH:$sbin_dir
+test -d $usr_bin_dir        && export PATH=$PATH:$usr_bin_dir
+test -d $usr_local_bin_dir  && export PATH=$PATH:$usr_local_bin_dir
+test -d $opt_bin_dir        && export PATH=$PATH:$opt_bin_dir
 
-scoop_shims_dir=`cygpath $SCOOP`/shims
-if [ -d "$scoop_shims_dir" ]; then
-    export PATH=$PATH:$scoop_shims_dir
-fi
+test -d $quicklist_bin_dir && export PATH=$PATH:$quicklist_bin_dir
+test -d $gem_bin_dir       && export PATH=$PATH:$gem_bin_dir
+test -d $scoop_shims_dir   && export PATH=$PATH:$scoop_shims_dir
+
+test -d $home_bin_dir       && export PATH=$PATH:$home_bin_dir
+test -d $home_local_bin_dir && export PATH=$PATH:$home_local_bin_dir
