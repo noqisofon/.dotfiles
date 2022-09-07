@@ -1,0 +1,41 @@
+#+begin_src shell-script :tangle ../profile/02-platform.sh :exports code
+  # -*- coding: utf-8-unix; -*-
+#+end_src
+
+
+#+begin_src shell-script :tangle ../profile/02-platform.sh
+  test -n "$MSYSTEM" && export MSYS=winsymlinks
+#+end_src
+
+
+#+begin_src shell-script :tangle ../profile/02-platform.sh
+  if is-windows-nt; then
+      export XDG_CONFIG_HOME=$HOME/.config
+      export XDG_DATA_HOME=$HOME/.local/share
+      export XDG_CACHE_HOME=$HOME/.cache
+  fi
+#+end_src
+
+
+#+begin_src shell-script :tangle ../profile/02-platform.sh
+  if type cygpath >& /dev/null ; then
+      if [ -n "$LOCALAPPDATA" ]; then
+          export LOCALAPPDATA=`cygpath $LOCALAPPDATA`
+      fi
+      if [ -n "$APPDATA" ]; then
+          export APPDATA=`cygpath $APPDATA`
+      fi
+  fi
+#+end_src
+
+* scoop 用
+
+#+begin_src shell-script :tangle ../profile/02-platform.sh
+  if type cygpath >& /dev/null ; then
+      if [ -n "$SCOOP" ]; then
+          scoop_shims_dir=`cygpath $SCOOP`/shims
+      fi
+  fi
+#+end_src
+
+

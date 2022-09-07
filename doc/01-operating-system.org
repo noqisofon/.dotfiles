@@ -1,0 +1,113 @@
+#+begin_src shell-script :tangle ../profile/01-operating-system.sh :exports code
+  # -*- coding: utf-8-unix; -*-
+#+end_src
+
+via: https://qiita.com/b4b4r07/items/09815eda8ef72e0b472e
+
+
+
+#+begin_src shell-script :tangle ../profile/01-operating-system.sh
+  exit_success=0
+  exit_failure=1
+#+end_src
+
+
+#+begin_src shell-script :tangle ../profile/01-operating-system.sh
+  kernel-type() {
+      uname -s | tr '[:upper:]' '[:lower:]'
+  }
+#+end_src
+
+
+#+begin_src shell-script :tangle ../profile/01-operating-system.sh
+  operating-system() {
+      uname -o | tr '[:upper:]' '[:lower:]'
+  }
+#+end_src
+
+
+#+begin_src shell-script :tangle ../profile/01-operating-system.sh
+  ensure-platform() {
+      case "$(kernel-type)" in
+           ,*'linux'*)       PLATFORM='linux'    ;;
+          ,*'darwin'*)       PLATFORM='osx'      ;;
+             ,*'bsd'*)       PLATFORM='bsd'      ;;
+            ,*'msys'*)       PLATFORM='msys'     ;;
+          ,*'cygwin'*)       PLATFORM='cygwin'   ;;
+                   ,*)       PLATFORM='unknown'  ;;
+      esac
+
+      export PLATFORM
+  }
+#+end_src
+
+
+#+begin_src shell-script :tangle ../profile/01-operating-system.sh
+  is-linux() {
+      ensure-platform
+
+      if [ "$PLATFORM" = "linux" ]; then
+          return $exit_success
+      else
+          return $exit_failure
+      fi
+  }
+#+end_src
+
+
+#+begin_src shell-script :tangle ../profile/01-operating-system.sh
+  is-osx() {
+      ensure-platform
+
+      if [ "$PLATFORM" = "osx" ]; then
+          return $exit_success
+      else
+          return $exit_failure
+      fi
+  }
+#+end_src
+
+
+#+begin_src shell-script :tangle ../profile/01-operating-system.sh
+  is-windows-nt() {
+      ensure-platform
+
+      if [ -n "$OS" -o "$PLATFORM" = "msys" -o "$PLATFORM" = "cygwin" ]; then
+          return $exit_success
+      else
+          return $exit_failure
+      fi
+  }
+#+end_src
+
+
+#+begin_src shell-script :tangle ../profile/01-operating-system.sh
+  is-cygwin() {
+      ensure-platform
+
+      if [ "$PLATFORM" = "cygwin" ]; then
+          return $exit_success
+      else
+          return $exit_failure
+      fi
+  }
+#+end_src
+
+
+#+begin_src shell-script :tangle ../profile/01-operating-system.sh
+  is-msys() {
+      ensure-platform
+
+      if [ "$PLATFORM" = "msys" ]; then
+          return $exit_success
+      else
+          return $exit_failure
+      fi
+  }
+#+end_src
+
+
+#+begin_src shell-script :tangle ../profile/01-operating-system.sh
+  unset exit_success
+  unset exit_failure
+#+end_src

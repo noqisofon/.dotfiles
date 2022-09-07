@@ -1,7 +1,4 @@
-# -*- mode: shell-script; coding: utf-8-unix; -*-
-#
-# via: https://qiita.com/b4b4r07/items/09815eda8ef72e0b472e
-#
+# -*- coding: utf-8-unix; -*-
 
 exit_success=0
 exit_failure=1

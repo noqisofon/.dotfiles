@@ -1,4 +1,5 @@
 # -*- coding: utf-8-unix; -*-
+
 test -n "$MSYSTEM" && export MSYS=winsymlinks
 
 if is-windows-nt; then
@@ -13,5 +14,11 @@ if type cygpath >& /dev/null ; then
     fi
     if [ -n "$APPDATA" ]; then
         export APPDATA=`cygpath $APPDATA`
+    fi
+fi
+
+if type cygpath >& /dev/null ; then
+    if [ -n "$SCOOP" ]; then
+        scoop_shims_dir=`cygpath $SCOOP`/shims
     fi
 fi

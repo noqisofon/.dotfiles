@@ -1,4 +1,5 @@
 # -*- coding: utf-8-unix; -*-
+
 export EDITOR=vim
 export VISUAL=vim
 
