@@ -8,6 +8,6 @@ ruby-version() {
     echo "${ruby_major_version}.${ruby_minor_version}.0"
 }
 
-export GEM_HOME=$HOME/.gem/ruby/$(ruby_version)
+export GEM_HOME=$HOME/.gem/ruby/$(ruby-version)
 
 export gem_bin_dir=$GEM_HOME/bin

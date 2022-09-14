@@ -15,7 +15,7 @@
 
 
 #+begin_src shell-script :tangle ../profile/32-ruby.sh
-  export GEM_HOME=$HOME/.gem/ruby/$(ruby_version)
+  export GEM_HOME=$HOME/.gem/ruby/$(ruby-version)
 #+end_src
 
 
