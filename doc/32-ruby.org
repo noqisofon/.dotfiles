@@ -5,30 +5,20 @@
 
 #+begin_src shell-script :tangle ../profile/32-ruby.sh
   ruby-version() {
-      ruby -e 'print RUBY_VERSION'
+      local ruby_version=$(ruby -e 'puts RUBY_VERSION')
+      local ruby_major_version=$(echo $ruby_version | cut -d. -f1)
+      local ruby_minor_version=$(echo $ruby_version | cut -d. -f2)
+
+      echo "${ruby_major_version}.${ruby_minor_version}.0"
   }
 #+end_src
 
 
 #+begin_src shell-script :tangle ../profile/32-ruby.sh
-  if [ "$MSYSTEM" = 'MSYS' ]; then
-      ruby_version=2.7.0
-  else
-      ruby_version=3.0.0
-  fi
-#+end_src
-
-
-#+begin_src shell-script :tangle ../profile/32-ruby.sh
-  export GEM_HOME=$HOME/.gem/ruby/${ruby_version}
+  export GEM_HOME=$HOME/.gem/ruby/$(ruby_version)
 #+end_src
 
 
 #+begin_src shell-script :tangle ../profile/32-ruby.sh
   export gem_bin_dir=$GEM_HOME/bin
-#+end_src
-
-
-#+begin_src shell-script :tangle ../profile/32-ruby.sh
-  unset ruby_version
 #+end_src
