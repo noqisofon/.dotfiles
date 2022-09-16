@@ -40,17 +40,35 @@ opt_bin_dir=/opt/bin
 home_bin_dir=$HOME/bin
 home_local_bin_dir=$HOME/.local/bin
 
-test -d $bin_dir            && export PATH=$bin_dir
-test -d $sbin_dir           && export PATH=$PATH:$sbin_dir
-test -d $usr_bin_dir        && export PATH=$PATH:$usr_bin_dir
-test -d $usr_local_bin_dir  && export PATH=$PATH:$usr_local_bin_dir
-test -d $opt_bin_dir        && export PATH=$PATH:$opt_bin_dir
-
-test -d $quicklisp_bin_dir && export PATH=$PATH:$quicklisp_bin_dir
-test -d $gem_bin_dir       && export PATH=$PATH:$gem_bin_dir
-test -d $scoop_shims_dir   && export PATH=$PATH:$scoop_shims_dir
-
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source $SDKMAN_DIR/bin/sdkman-init.sh
 
-test -d $home_bin_dir       && export PATH=$PATH:$home_bin_dir
-test -d $home_local_bin_dir && export PATH=$PATH:$home_local_bin_dir
+all_executable_paths=($bin_dir
+                      $sbin_dir
+                      $usr_bin_dir
+                      $usr_local_bin_dir
+                      $opt_bin_dir
+                      $quicklisp_bin_dir
+                      $gem_bin_dir
+                      $scoop_shims_dir
+                      /c/tools/chicken/bin
+                      $JAVA_HOME/bin
+                      $GRADLE_HOME/bin
+                      $GRAILS_HOME/bin
+                      $GROOVY_HOME/bin
+                      $GAIDEN_HOME/bin
+                      $FLINK_HOME/bin
+                      $KOTLIN_HOME/bin
+                      $KSCRIPT_HOME/bin
+                      $MAVEN_HOME/bin
+                      $MICRONAUT_HOME/bin
+                      $SPRINGBOOT_HOME/bin
+                      $home_bin_dir
+                      $home_local_bin_dir)
+
+executable_paths=()
+for executable_path in "${all_executable_paths[@]}"; do
+    [ -d "$executable_path" ] && executable_paths+=("$executable_path")
+done
+unset executable_path
+
+export PATH="$(IFS=:; echo "${executable_paths[*]}")"

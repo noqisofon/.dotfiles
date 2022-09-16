@@ -1,0 +1,336 @@
+# -*- coding: utf-8; -*-
+#+title: 02 terminal
+#+options: ^:nil
+
+#+begin_src shell-script :tangle ../../profile.zsh/02-terminal.zsh :exports code
+  # -*- coding: utf-8-unix; -*-
+#+end_src
+
+* キーバインド
+
+** bindkey
+
+Emacs ライクなキーバンドにします。
+
+| -v | vi ライクなキーバインド  |
+| -e | Emacs ライクなキーバンド |
+
+#+begin_src shell-script :tangle ../../profile.zsh/02-terminal.zsh
+  bindkey -e
+#+end_src
+
+* プロンプト関連
+
+** promptinit
+
+プロンプトのテーマ？を初期化します。
+
+#+begin_src shell-script :tangle ../../profile.zsh/02-terminal.zsh
+  autoload -Uz promptinit && promptinit
+#+end_src
+
+** colors
+
+色を使用できるようにします。
+
+#+begin_src shell-script :tangle ../../profile.zsh/02-terminal.zsh
+  autoload -U colors && colors
+#+end_src
+
+** prompt_subst
+
+~PROMPT~ 変数内で変数を参照できるようにします。
+
+#+begin_src shell-script :tangle ../../profile.zsh/02-terminal.zsh
+  setopt prompt_subst
+#+end_src
+
+** PROMPT
+
+~root~ かそれ以外かでプロンプトを切り替えます。
+
+#+begin_src shell-script :tangle ../../profile.zsh/02-terminal.zsh
+  case ${UID} in
+    0)
+      # root 用のプロンプトです。
+      PROMPT="%B%M%b %~ %# "
+      ;;
+    ,*)
+      # 通常のプロンプトです。
+      PROMPT="%B%n@%m%b %~
+ %# "
+      ;;
+  esac
+#+end_src
+
+** PROMPT2
+
+~for~ や ~while~ 、複数行入力時等に表示されるプロンプトです。
+
+#+begin_src shell-script :tangle ../../profile.zsh/02-terminal.zsh
+  PROMPT2="%_ >%_b"
+#+end_src
+
+** SPROMPT
+
+入力ミスを確認する場合に表示されるプロンプトです。
+
+#+begin_src shell-script :tangle ../../profile.zsh/02-terminal.zsh
+  SPROMPT="'%r' is correct? [n,y,a,e]: "
+#+end_src
+
+** RPROMPT
+
+右に表示したいプロンプトです。
+現在の時刻を表示します。
+
+#+begin_src shell-script :tangle ../../profile.zsh/02-terminal.zsh
+  RPROMPT="%T"
+#+end_src
+
+** transient_rprompt
+
+右プロンプトまで入力が来たら消すようにします。
+
+#+begin_src shell-script :tangle ../../profile.zsh/02-terminal.zsh
+  setopt transient_rprompt
+#+end_src
+
+* 補完
+
+** compinit
+
+標準の保管設定を行います。
+
+#+begin_src shell-script :tangle ../../profile.zsh/02-terminal.zsh
+  autoload -U compinit && compinit
+#+end_src
+
+** auto_cd
+
+ディレクトリ名を入力するだけでカレントディレクトリを変更するようにします。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+  setopt auto_cd
+#+end_src
+
+** auto_menu
+
+タブキー連打で保管候補を順に表示します。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+  setopt auto_menu
+#+end_src
+
+** correct
+
+自動修正機能(候補を表示)を使いません。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+  #setopt correct
+#+end_src
+
+** list_packed
+
+保管候補を詰めて表示します。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+  setopt list_packed
+#+end_src
+
+** list_types
+
+保管候補一覧でファイルの種別を表す識別マークを表示(ls -F の記号)します。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+  setopt list_types
+#+end_src
+
+** noautoremoveslash
+
+パスの最後につくスラッシュを自動的に削除しないようにします。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+  setopt noautoremoveslash
+#+end_src
+
+** magic_equal_subst
+
+~=~ 以降でも保管できるようにします( ~--prefix=/usr~ のような場合)。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+  setopt magic_equal_subst
+#+end_src
+
+** print_eight_bit
+
+保管候補リストの日本語を正しく表示するようにします。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+  setopt print_eight_bit
+#+end_src
+
+** completion macher-list
+
+補完時に大文字小文字を区別しないようにします(但し、大文字を打った場合は小文字に変換しません)。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+  zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+#+end_src
+
+** completion list-colors
+
+~ls~ コマンドの保管候補にも色つき表示を行います。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+  if [ -f $HOME/.dir_colors ]; then
+      eval `dircolors ~/.dir_colors`
+  fi
+#+end_src
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+  zstyle ':completion:*:default' list-colors ${LS_COLORS}
+#+end_src
+
+** completion kill processes list-colors
+
+~kill~ の候補にも色つき表示を行います。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+  zstyle ':completion:*:kill:*:processes' list-colors '=(#b) #([%0-9]#)*=0=01;31'
+#+end_src
+
+** completion sudo command-path
+
+コマンドの先頭に ~sudo~ をつけてもきちんと保管できるようにします。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+  zstyle ' :completion:*:sudo:*' command-path \
+         /sbin \
+         /bin \
+         /usr/sbin \
+         /usr/X11R6/bin \
+         /usr/local/sbin \
+         /usr/local/bin
+#+end_src
+
+* 履歴
+
+~root~ は履歴を保存しないようにします。
+
+それ以外のユーザーでは履歴を保存するようにします。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+  if [ "$UID" = "0" ]; then
+      unset HISTFILE
+
+      SAVEHIST=0
+  else
+      HISTFILE=~/.zsh_history
+      HISTSIZE=10000
+      SAVEHIST=10000
+  fi
+#+end_src
+
+
+** HISTFILE
+
+ヒストリーファイルのパスを設定します。
+
+** HISTSIZE
+
+ヒストリに保存するコマンド数です。
+
+** SAVEHIST
+
+ヒストリファイルに保存するコマンド数です。
+
+** share_history
+
+履歴を複数端末間で共有します。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+setopt share_history
+#+end_src
+
+** share_history
+
+コマンド履歴ファイルを共有します。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+setopt share_history
+#+end_src
+
+** inc_append_history
+
+履歴をインクリメンタルに追加します。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+setopt inc_append_history
+#+end_src
+
+** hist_no_store
+
+~history~ コマンドは履歴に登録しません。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+setopt hist_no_store
+#+end_src
+
+** auto_pushd
+
+~cd -~ と入力して Tab キーで今までに移動したディレクトリを一覧表示します。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+setopt auto_pushd
+#+end_src
+
+** pushd_ignore_dups
+
+ディレクトリスタックで重複する古い方を削除することにします。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+setopt pushd_ignore_dups
+#+end_src
+
+** hist_ignore_space
+
+先頭がスペースの場合、ヒストリに追加しません。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+setopt hist_ignore_space
+#+end_src
+
+** hist_ignore_all_dups
+
+重複するコマンド行は古い方を削除します。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+setopt hist_ignore_all_dups
+#+end_src
+
+** hist_ignore_dups
+
+直前と同じコマンドラインはヒストリに追加しないようにします。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+setopt hist_ignore_dups
+#+end_src
+
+** hist_reduce_blanks
+
+余分な空白は詰めて記録します。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+setopt hist_reduce_blanks
+#+end_src
+
+* エイリアス
+
+** complete_aliases
+
+保管される前にオリジナルのコマンドまで展開してチェックします。
+
+#+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
+  setopt complete_aliases
+#+end_src
