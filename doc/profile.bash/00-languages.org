@@ -1,4 +1,4 @@
-#+begin_src shell-script :tangle ../profile/00-languages.sh :exports code
+#+begin_src shell-script :tangle ../../profile.bash/00-languages.sh :exports code
   # -*- coding: utf-8-unix; -*-
 #+end_src
 
@@ -6,10 +6,10 @@
 
 ~LANG~ が設定されていない場合、 ~ja_JP.utf8~ を設定します。
 
-#+begin_src shell-script :tangle ../profile/00-languages.sh
+#+begin_src shell-script :tangle ../../profile.bash/00-languages.sh
   test -z "$LANG" && export LANG=ja_JP.utf8
 #+end_src
 
-#+begin_src shell-script :tangle ../profile/00-languages.sh
+#+begin_src shell-script :tangle ../../profile.bash/00-languages.sh
   export KCODE=u
 #+end_src

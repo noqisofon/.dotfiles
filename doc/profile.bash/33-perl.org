@@ -1,9 +1,9 @@
-#+begin_src shell-script :tangle ../profile/33-perl.sh :exports code
+#+begin_src shell-script :tangle ../../profile.bash/33-perl.sh :exports code
   # -*- coding: utf-8-unix; -*-
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/33-perl.sh
+#+begin_src shell-script :tangle ../../profile.bash/33-perl.sh
   perl-version() {
       local perl_version=$(perl -e 'print $^V' | sed s/v//)
       local perl_major_version=$(echo $perl_version | cut -d. -f1)
@@ -14,6 +14,6 @@
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/33-perl.sh
+#+begin_src shell-script :tangle ../../profile.bash/33-perl.sh
   export PERL5LIB=$HOME/.perl5/lib/$(perl-version)
 #+end_src

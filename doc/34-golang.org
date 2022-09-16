@@ -1,9 +1,0 @@
-#+begin_src shell-script :tangle ../profile/34-golang.sh :exports code
-  # -*- coding: utf-8-unix; -*-
-#+end_src
-
-
-#+begin_src shell-script :tangle ../profile/34-golang.sh
-  export GOPATH=$HOME/.go:$HOME/workspace
-  export GOBIN=$HOME/bin
-#+end_src

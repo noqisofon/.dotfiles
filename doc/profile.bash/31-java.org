@@ -1,0 +1,10 @@
+#+begin_src shell-script :tangle ../../profile.bash/31-java.sh :exports code
+  # -*- coding: utf-8-unix; -*-
+#+end_src
+
+
+#+begin_src shell-script :tangle ../../profile.bash/31-java.sh
+  if [ -d $HOME/.sdkman ]; then
+      export SDKMAN_DIR=$HOME/.sdkman
+  fi
+#+end_src

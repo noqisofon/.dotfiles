@@ -1,27 +1,27 @@
-#+begin_src shell-script :tangle ../profile/02-terminal.sh :exports code
+#+begin_src shell-script :tangle ../../profile.bash/02-terminal.sh :exports code
   # -*- coding: utf-8-unix; -*-
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/02-terminal.sh
+#+begin_src shell-script :tangle ../../profile.bash/02-terminal.sh
   export EDITOR=vim
   export VISUAL=vim
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/02-terminal.sh
+#+begin_src shell-script :tangle ../../profile.bash/02-terminal.sh
   export HISTFILESIZE=100000
   export LISTMAX=0
 #+end_src
 
 * less 関連
 
-#+begin_src shell-script :tangle ../profile/02-terminal.sh
+#+begin_src shell-script :tangle ../../profile.bash/02-terminal.sh
   export LESS='-R'
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/02-terminal.sh
+#+begin_src shell-script :tangle ../../profile.bash/02-terminal.sh
   if [ -f $HOME/.source-highlight/src-hilite-lesspipe.sh ]; then
       export LESSOPEN="| $HOME/.source-highlight/src-hilite-lesspipe.sh %s"
   fi
@@ -29,14 +29,14 @@
 
 * なんたらアラウンド
 
-#+begin_src shell-script :tangle ../profile/02-terminal.sh
+#+begin_src shell-script :tangle ../../profile.bash/02-terminal.sh
   if [ -z "$TERM" -o "$TERM" = "unknown" ]; then
       TERM=linux
   fi
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/02-terminal.sh
+#+begin_src shell-script :tangle ../../profile.bash/02-terminal.sh
   if [ "$TERM" = "linux" ]; then
       export LC_TIME=C
       export LC_MESSAGES=C

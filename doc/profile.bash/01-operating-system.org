@@ -1,4 +1,4 @@
-#+begin_src shell-script :tangle ../profile/01-operating-system.sh :exports code
+#+begin_src shell-script :tangle ../../profile.bash/01-operating-system.sh :exports code
   # -*- coding: utf-8-unix; -*-
 #+end_src
 
@@ -6,27 +6,27 @@ via: https://qiita.com/b4b4r07/items/09815eda8ef72e0b472e
 
 
 
-#+begin_src shell-script :tangle ../profile/01-operating-system.sh
+#+begin_src shell-script :tangle ../../profile.bash/01-operating-system.sh
   exit_success=0
   exit_failure=1
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/01-operating-system.sh
+#+begin_src shell-script :tangle ../../profile.bash/01-operating-system.sh
   kernel-type() {
       uname -s | tr '[:upper:]' '[:lower:]'
   }
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/01-operating-system.sh
+#+begin_src shell-script :tangle ../../profile.bash/01-operating-system.sh
   operating-system() {
       uname -o | tr '[:upper:]' '[:lower:]'
   }
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/01-operating-system.sh
+#+begin_src shell-script :tangle ../../profile.bash/01-operating-system.sh
   ensure-platform() {
       case "$(kernel-type)" in
            ,*'linux'*)       PLATFORM='linux'    ;;
@@ -42,7 +42,7 @@ via: https://qiita.com/b4b4r07/items/09815eda8ef72e0b472e
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/01-operating-system.sh
+#+begin_src shell-script :tangle ../../profile.bash/01-operating-system.sh
   is-linux() {
       ensure-platform
 
@@ -55,7 +55,7 @@ via: https://qiita.com/b4b4r07/items/09815eda8ef72e0b472e
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/01-operating-system.sh
+#+begin_src shell-script :tangle ../../profile.bash/01-operating-system.sh
   is-osx() {
       ensure-platform
 
@@ -68,7 +68,7 @@ via: https://qiita.com/b4b4r07/items/09815eda8ef72e0b472e
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/01-operating-system.sh
+#+begin_src shell-script :tangle ../../profile.bash/01-operating-system.sh
   is-windows-nt() {
       ensure-platform
 
@@ -81,7 +81,7 @@ via: https://qiita.com/b4b4r07/items/09815eda8ef72e0b472e
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/01-operating-system.sh
+#+begin_src shell-script :tangle ../../profile.bash/01-operating-system.sh
   is-cygwin() {
       ensure-platform
 
@@ -94,7 +94,7 @@ via: https://qiita.com/b4b4r07/items/09815eda8ef72e0b472e
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/01-operating-system.sh
+#+begin_src shell-script :tangle ../../profile.bash/01-operating-system.sh
   is-msys() {
       ensure-platform
 
@@ -107,7 +107,7 @@ via: https://qiita.com/b4b4r07/items/09815eda8ef72e0b472e
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/01-operating-system.sh
+#+begin_src shell-script :tangle ../../profile.bash/01-operating-system.sh
   unset exit_success
   unset exit_failure
 #+end_src

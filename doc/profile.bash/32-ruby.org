@@ -1,9 +1,9 @@
-#+begin_src shell-script :tangle ../profile/32-ruby.sh :exports code
+#+begin_src shell-script :tangle ../../profile.bash/32-ruby.sh :exports code
   # -*- coding: utf-8-unix; -*-
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/32-ruby.sh
+#+begin_src shell-script :tangle ../../profile.bash/32-ruby.sh
   ruby-version() {
       local ruby_version=$(ruby -e 'puts RUBY_VERSION')
       local ruby_major_version=$(echo $ruby_version | cut -d. -f1)
@@ -14,11 +14,11 @@
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/32-ruby.sh
+#+begin_src shell-script :tangle ../../profile.bash/32-ruby.sh
   export GEM_HOME=$HOME/.gem/ruby/$(ruby-version)
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/32-ruby.sh
+#+begin_src shell-script :tangle ../../profile.bash/32-ruby.sh
   export gem_bin_dir=$GEM_HOME/bin
 #+end_src

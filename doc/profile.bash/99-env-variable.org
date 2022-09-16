@@ -1,16 +1,16 @@
-#+begin_src shell-script :tangle ../profile/99-env-variable.sh :exports code
+#+begin_src shell-script :tangle ../../profile.bash/99-env-variable.sh :exports code
   # -*- coding: utf-8-unix; -*-
 #+end_src
 
 * GHQ 関連
 
-#+begin_src shell-script :tangle ../profile/99-env-variable.sh
+#+begin_src shell-script :tangle ../../profile.bash/99-env-variable.sh
   export GHQ_ROOT=$HOME/opt/src
 #+end_src
 
 * keybase
 
-#+begin_src shell-script :tangle ../profile/99-env-variable.sh
+#+begin_src shell-script :tangle ../../profile.bash/99-env-variable.sh
   if is-windows-nt ; then
       source $HOME/.config/dotfiles/bash/setup/keybase.sh
   fi
@@ -18,13 +18,13 @@
 
 * Unix like なディレクトリ構造
 
-#+begin_src shell-script :tangle ../profile/99-env-variable.sh
+#+begin_src shell-script :tangle ../../profile.bash/99-env-variable.sh
   bin_dir=/bin
   sbin_dir=/sbin
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/99-env-variable.sh
+#+begin_src shell-script :tangle ../../profile.bash/99-env-variable.sh
   case $MSYSTEM in
       "MINGW32")
           usr_bin_dir=/mingw32/bin
@@ -53,7 +53,7 @@
   esac
 #+end_src
 
-#+begin_src shell-script :tangle ../profile/99-env-variable.sh
+#+begin_src shell-script :tangle ../../profile.bash/99-env-variable.sh
   opt_bin_dir=/opt/bin
   home_bin_dir=$HOME/bin
   home_local_bin_dir=$HOME/.local/bin
@@ -61,7 +61,7 @@
 
 * PATH にくっつける
 
-#+begin_src shell-script :tangle ../profile/99-env-variable.sh
+#+begin_src shell-script :tangle ../../profile.bash/99-env-variable.sh
   test -d $bin_dir            && export PATH=$bin_dir
   test -d $sbin_dir           && export PATH=$PATH:$sbin_dir
   test -d $usr_bin_dir        && export PATH=$PATH:$usr_bin_dir
@@ -69,17 +69,17 @@
   test -d $opt_bin_dir        && export PATH=$PATH:$opt_bin_dir
 #+end_src
 
-#+begin_src shell-script :tangle ../profile/99-env-variable.sh
+#+begin_src shell-script :tangle ../../profile.bash/99-env-variable.sh
   test -d $quicklisp_bin_dir && export PATH=$PATH:$quicklisp_bin_dir
   test -d $gem_bin_dir       && export PATH=$PATH:$gem_bin_dir
   test -d $scoop_shims_dir   && export PATH=$PATH:$scoop_shims_dir
 #+end_src
 
-#+begin_src shell-script :tangle ../profile/99-env-variable.sh
+#+begin_src shell-script :tangle ../../profile.bash/99-env-variable.sh
   [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source $SDKMAN_DIR/bin/sdkman-init.sh
 #+end_src
 
-#+begin_src shell-script :tangle ../profile/99-env-variable.sh
+#+begin_src shell-script :tangle ../../profile.bash/99-env-variable.sh
   test -d $home_bin_dir       && export PATH=$PATH:$home_bin_dir
   test -d $home_local_bin_dir && export PATH=$PATH:$home_local_bin_dir
 #+end_src

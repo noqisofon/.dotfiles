@@ -1,22 +1,22 @@
-#+begin_src shell-script :tangle ../profile/40-aliases.sh :exports code
+#+begin_src shell-script :tangle ../../profile.bash/40-aliases.sh :exports code
   # -*- coding: utf-8-unix; -*-
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/40-aliases.sh
+#+begin_src shell-script :tangle ../../profile.bash/40-aliases.sh
   when_color=auto
   tab_size=0
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/40-aliases.sh
+#+begin_src shell-script :tangle ../../profile.bash/40-aliases.sh
   if ! type vim > /dev/null 2>&1; then
       alias vim=vi
   fi
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/40-aliases.sh
+#+begin_src shell-script :tangle ../../profile.bash/40-aliases.sh
   if [ -z "$LS_OPTIONS" ]; then
       alias ls="ls -N --color=$when_color --tabsize $tab_size -p"
   else
@@ -25,12 +25,12 @@
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/40-aliases.sh
+#+begin_src shell-script :tangle ../../profile.bash/40-aliases.sh
   alias grep="grep --color=$when_color"
 #+end_src
 
 
-#+begin_src shell-script :tangle ../profile/40-aliases.sh
+#+begin_src shell-script :tangle ../../profile.bash/40-aliases.sh
   unset when_color
   unset tab_size
 #+end_src

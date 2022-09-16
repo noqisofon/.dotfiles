@@ -1,0 +1,8 @@
+#+begin_src shell-script :tangle ../../profile.bash/35-lisp.sh :exports code
+  # -*- coding: utf-8-unix; -*-
+#+end_src
+
+
+#+begin_src shell-script :tangle ../../profile.bash/35-lisp.sh
+  quicklisp_bin_dir=$HOME/.roswell/lisp/quicklisp/bin
+#+end_src

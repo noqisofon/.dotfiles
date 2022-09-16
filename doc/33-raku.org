@@ -1,8 +1,0 @@
-#+begin_src shell-script :tangle ../profile/33-raku.sh :exports code
-  # -*- coding: utf-8-unix; -*-
-#+end_src
-
-
-#+begin_src shell-script :tangle ../profile/33-raku.sh
-  RAKUDO_HOME=$SCOOP/apps/rakudo-moar/current
-#+end_src
