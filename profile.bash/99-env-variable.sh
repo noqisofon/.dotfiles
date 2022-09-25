@@ -42,10 +42,10 @@ home_local_bin_dir=$HOME/.local/bin
 
 [[ -s "$SDKMAN_DIR/bin/sdkman-init.sh" ]] && source $SDKMAN_DIR/bin/sdkman-init.sh
 
-all_executable_paths=($bin_dir
-                      $sbin_dir
-                      $usr_bin_dir
+all_executable_paths=($usr_bin_dir
                       $usr_local_bin_dir
+                      $bin_dir
+                      $sbin_dir
                       $opt_bin_dir
                       $core_perl_dir
                       $site_perl_dir

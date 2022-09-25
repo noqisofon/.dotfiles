@@ -66,10 +66,10 @@
 #+end_src
 
 #+begin_src shell-script :tangle ../../profile.bash/99-env-variable.sh
-  all_executable_paths=($bin_dir
-                        $sbin_dir
-                        $usr_bin_dir
+  all_executable_paths=($usr_bin_dir
                         $usr_local_bin_dir
+                        $bin_dir
+                        $sbin_dir
                         $opt_bin_dir
                         $core_perl_dir
                         $site_perl_dir
