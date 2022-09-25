@@ -71,6 +71,9 @@
                         $usr_bin_dir
                         $usr_local_bin_dir
                         $opt_bin_dir
+                        $core_perl_dir
+                        $site_perl_dir
+                        $vendor_perl_dir
                         $quicklisp_bin_dir
                         $gem_bin_dir
                         $scoop_shims_dir

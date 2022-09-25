@@ -9,3 +9,9 @@ perl-version() {
 }
 
 export PERL5LIB=$HOME/.perl5/lib/$(perl-version)
+
+export core_perl_dir=/usr/bin/core_perl
+
+export site_perl_dir=/usr/bin/site_perl
+
+export vendor_perl_dir=/usr/bin/vendor_perl

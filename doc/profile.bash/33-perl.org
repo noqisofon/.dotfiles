@@ -17,3 +17,18 @@
 #+begin_src shell-script :tangle ../../profile.bash/33-perl.sh
   export PERL5LIB=$HOME/.perl5/lib/$(perl-version)
 #+end_src
+
+
+#+begin_src shell-script :tangle ../../profile.bash/33-perl.sh
+  export core_perl_dir=/usr/bin/core_perl
+#+end_src
+
+
+#+begin_src shell-script :tangle ../../profile.bash/33-perl.sh
+  export site_perl_dir=/usr/bin/site_perl
+#+end_src
+
+
+#+begin_src shell-script :tangle ../../profile.bash/33-perl.sh
+  export vendor_perl_dir=/usr/bin/vendor_perl
+#+end_src

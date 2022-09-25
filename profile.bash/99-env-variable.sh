@@ -47,9 +47,13 @@ all_executable_paths=($bin_dir
                       $usr_bin_dir
                       $usr_local_bin_dir
                       $opt_bin_dir
+                      $core_perl_dir
+                      $site_perl_dir
+                      $vendor_perl_dir
                       $quicklisp_bin_dir
                       $gem_bin_dir
                       $scoop_shims_dir
+                      $WASMER_DIR/bin
                       /c/tools/chicken/bin
                       $JAVA_HOME/bin
                       $GRADLE_HOME/bin
@@ -62,6 +66,8 @@ all_executable_paths=($bin_dir
                       $MAVEN_HOME/bin
                       $MICRONAUT_HOME/bin
                       $SPRINGBOOT_HOME/bin
+                      $SBT_HOME/bin
+                      $SCALA_HOME/bin
                       $home_bin_dir
                       $home_local_bin_dir)
 
