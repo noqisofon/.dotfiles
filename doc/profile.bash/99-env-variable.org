@@ -77,8 +77,12 @@
                         $quicklisp_bin_dir
                         $gem_bin_dir
                         $scoop_shims_dir
-                        $WASMER_DIR/bin
+                        /c/ProgramData/Scoop/apps/wasmer/current
                         /c/tools/chicken/bin
+                        $gambit_bin_dir/bin
+                        $app_nodejs_dir/bin
+                        $app_yarn_dir/bin
+                        $persist_nodejs_dir
                         $JAVA_HOME/bin
                         $GRADLE_HOME/bin
                         $GRAILS_HOME/bin

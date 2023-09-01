@@ -20,5 +20,11 @@
 
 
 #+begin_src shell-script :tangle ../../profile.bash/32-ruby.sh
-  export gem_bin_dir=$GEM_HOME/bin
+  gem_bin_dir=$GEM_HOME/bin
+#+end_src
+
+#+begin_src shell-script :tangle ../../profile.bash/32-ruby.sh
+  if [ ! -d $gem_bin_dir ]; then
+      mkdir -p $gem_bin_dir
+  fi
 #+end_src

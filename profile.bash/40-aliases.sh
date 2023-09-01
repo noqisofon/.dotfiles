@@ -14,6 +14,7 @@ else
 fi
 
 alias grep="grep --color=$when_color"
+alias nims="nim --hints:off"
 
 unset when_color
 unset tab_size

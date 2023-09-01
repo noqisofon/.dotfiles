@@ -10,4 +10,8 @@ ruby-version() {
 
 export GEM_HOME=$HOME/.gem/ruby/$(ruby-version)
 
-export gem_bin_dir=$GEM_HOME/bin
+gem_bin_dir=$GEM_HOME/bin
+
+if [ ! -d $gem_bin_dir ]; then
+    mkdir -p $gem_bin_dir
+fi

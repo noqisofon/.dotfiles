@@ -6,3 +6,7 @@
 #+begin_src shell-script :tangle ../../profile.bash/35-lisp.sh
   quicklisp_bin_dir=$HOME/.roswell/lisp/quicklisp/bin
 #+end_src
+
+#+begin_src shell-script :tangle ../../profile.bash/35-lisp.sh
+  gambit_bin_dir=/c/ProgramData/chocolatey/lib/gambit/bin
+#+end_src

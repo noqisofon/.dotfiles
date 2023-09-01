@@ -20,12 +20,12 @@
 
 
 #+begin_src shell-script :tangle ../../profile.bash/33-perl.sh
-  export core_perl_dir=/usr/bin/core_perl
+  export core_perl_dir=$MSYSTEM_PREFIX/bin/core_perl
 #+end_src
 
 
 #+begin_src shell-script :tangle ../../profile.bash/33-perl.sh
-  export site_perl_dir=/usr/bin/site_perl
+  export site_perl_dir=MSYSTEM_PREFIX/bin/site_perl
 #+end_src
 
 

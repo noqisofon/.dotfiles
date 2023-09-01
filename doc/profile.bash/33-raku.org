@@ -6,3 +6,9 @@
 #+begin_src shell-script :tangle ../../profile.bash/33-raku.sh
   RAKUDO_HOME=$SCOOP/apps/rakudo-moar/current
 #+end_src
+
+
+#+begin_src shell-script :tangle ../../profile.bash/33-raku.sh
+  export ZEF_CONFIG_STOREDIR=$HOME/.zef/store
+  export ZEF_CONFIG_TEMPDIR=$HOME/.zef/tmp
+#+end_src

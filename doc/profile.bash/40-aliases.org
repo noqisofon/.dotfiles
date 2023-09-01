@@ -27,6 +27,7 @@
 
 #+begin_src shell-script :tangle ../../profile.bash/40-aliases.sh
   alias grep="grep --color=$when_color"
+  alias nims="nim --hints:off"
 #+end_src
 
 

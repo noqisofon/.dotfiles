@@ -1,0 +1,15 @@
+#+begin_src shell-script :tangle ../../profile.bash/36-javascript.sh :exports code
+  # -*- coding: utf-8-unix; -*-
+#+end_src
+
+#+begin_src shell-script :tangle ../../profile.bash/36-javascript.sh
+  app_nodejs_dir=$(cygpath $SCOOP)/apps/nodejs/current
+#+end_src
+
+#+begin_src shell-script :tangle ../../profile.bash/36-javascript.sh
+  app_yarn_dir=$(cygpath $SCOOP)/apps/yarn/current
+#+end_src
+
+#+begin_src shell-script :tangle ../../profile.bash/36-javascript.sh
+  persist_nodejs_dir=$(cygpath $SCOOP)/apps/nodejs/current
+#+end_src
