@@ -3,6 +3,10 @@
 # Directory keep file
 !.gitkeep
 
+# Generate files
+/profile.bash/*.sh
+/profile.zsh/*.zsh
+
 # Emacs template files
 *~
 .*~
