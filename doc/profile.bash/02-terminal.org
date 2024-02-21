@@ -4,8 +4,13 @@
 
 
 #+begin_src shell-script :tangle ../../profile.bash/02-terminal.sh
-  export EDITOR=vim
-  export VISUAL=vim
+  if is-windows-nt ; then
+      export EDITOR=emacsclientw
+      export VISUAL=emacsclientw
+  else
+      export EDITOR=emacsclient
+      export VISUAL=emacsclient
+  fi
 #+end_src
 
 

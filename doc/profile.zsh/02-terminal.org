@@ -85,7 +85,7 @@ Emacs ライクなキーバンドにします。
 現在の時刻を表示します。
 
 #+begin_src shell-script :tangle ../../profile.zsh/02-terminal.zsh
-  RPROMPT="%T"
+  RPROMPT="%D{%FT%R}"
 #+end_src
 
 ** transient_rprompt
@@ -250,7 +250,7 @@ Emacs ライクなキーバンドにします。
 履歴を複数端末間で共有します。
 
 #+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
-setopt share_history
+  setopt share_history
 #+end_src
 
 ** share_history
@@ -258,7 +258,7 @@ setopt share_history
 コマンド履歴ファイルを共有します。
 
 #+begin_src shell-script :tangle  ../../profile.zsh/02-terminal.zsh
-setopt share_history
+  setopt share_history
 #+end_src
 
 ** inc_append_history

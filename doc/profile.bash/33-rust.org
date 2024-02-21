@@ -1,0 +1,8 @@
+#+begin_src shell-script :tangle ../../profile.bash/33-rust.sh :exports code
+  # -*- coding: utf-8-unix; -*-
+#+end_src
+
+
+#+begin_src shell-script :tangle ../../profile.bash/33-rust.sh
+  cargo_bin_dir=$HOME/.cargo/bin
+#+end_src

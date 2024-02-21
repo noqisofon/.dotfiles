@@ -8,5 +8,5 @@ all: tangle
 tangle: $(zsh_files)
 .PHONY : tangle
 
-../../profile.bash/%.zsh: ./%.org
+../../profile.zsh/%.zsh: ./%.org
 	../../.tools/org-babel-tangle $<
